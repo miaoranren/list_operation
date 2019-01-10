@@ -31,7 +31,7 @@ def custom_len(input_list):
 
     """
 
-    return 0
+    return len(input_list)
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -58,8 +58,8 @@ def custom_append(input_list, value):
         True
 
     """
-
-    pass
+    input_list.append(value)
+    
 
 
 def custom_extend(input_list, second_list):
@@ -78,7 +78,7 @@ def custom_extend(input_list, second_list):
 
     """
 
-    pass
+    input_list.extend(second_list)
 
 
 def custom_insert(input_list, index, value):
@@ -96,7 +96,7 @@ def custom_insert(input_list, index, value):
 
     """
 
-    pass
+    input_list[index] = value
 
 
 def custom_remove(input_list, value):
@@ -115,7 +115,7 @@ def custom_remove(input_list, value):
 
     """
 
-    pass
+    del input_list.pop(value)
 
 
 def custom_pop(input_list):
@@ -134,8 +134,7 @@ def custom_pop(input_list):
 
     """
 
-    return None
-
+    return input_list.pop()
 
 def custom_index(input_list, value):
     """Return the index of the first item of value found in input_list.
@@ -149,9 +148,9 @@ def custom_index(input_list, value):
         1
 
     """
-
-    return 0
-
+    
+    return input_list.index(value)
+    
 
 def custom_count(input_list, value):
     """Return the number of times value appears in the list.
