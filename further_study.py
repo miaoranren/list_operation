@@ -128,16 +128,16 @@ def custom_remove(input_list, value):
         True
 
     """
-    index = 0
+    count_index = 0
     for item in input_list:
         
         if item == value:
 
            
-            input_list[index:index+1] = []
+            input_list[count_index:count_index+1] = []
             
             break
-        index +=1
+        count_index +=1
 
             # input_list[a:a]= []
 
@@ -159,8 +159,9 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
-
-    return input_list.pop()
+    last_item = input_list[-1]
+    input_list[-1:] = []
+    return last_item
 
 def custom_index(input_list, value):
     """Return the index of the first item of value found in input_list.
@@ -174,9 +175,16 @@ def custom_index(input_list, value):
         1
 
     """
-    
-    return input_list.index(value)
-    
+    index = 0
+
+    for i in input_list:
+        
+        if i == value:
+            
+            return index
+        index +=1
+         
+      
 
 def custom_count(input_list, value):
     """Return the number of times value appears in the list.
@@ -191,8 +199,13 @@ def custom_count(input_list, value):
 
     """
 
-    return input_list.count(value)
-
+    count = 0
+    for i in input_list:
+        if i == value:
+            count += 1
+            
+    return count
+        
 
 def custom_reverse(input_list):
     """Reverse the elements of the input_list.
@@ -210,7 +223,6 @@ def custom_reverse(input_list):
 
     """
 
-    input_list.reverse()
 
 
 def custom_contains(input_list, value):
@@ -230,7 +242,10 @@ def custom_contains(input_list, value):
 
     """
 
-    return value in input_list
+    for i in input_list:
+       if i == value:
+        return True
+    return False
 
 
 def custom_equality(some_list, another_list):
