@@ -61,12 +61,12 @@ def custom_append(input_list, value):
         True
 
     """
-    # index_add = len(input_list)
-    # input_list[index_add] = value
+    index_add = custom_len(input_list)
+    input_list[index_add:index_add] = [value]
 
     # input_list_added = input_list + list(value)
     # return input_list_added
-    input_list += [value]
+    # input_list += [value]
 
 def custom_extend(input_list, second_list):
     """Append every item in second_list to input_list.
@@ -102,12 +102,7 @@ def custom_insert(input_list, index, value):
         True
 
     """
-    # for i in range(len(input_list)):
-    #     if i == index:
-    #         original_index_item = input_list[index]
-    #         input_list[index] = value 
-    #         input_list[index+1] = original_index_item
-    # return input_list
+  
     input_list[index:index] = [value]
 
 
@@ -130,10 +125,7 @@ def custom_remove(input_list, value):
     """
     count_index = 0
     for item in input_list:
-        
         if item == value:
-
-           
             input_list[count_index:count_index+1] = []
             
             break
@@ -178,9 +170,7 @@ def custom_index(input_list, value):
     index = 0
 
     for i in input_list:
-        
         if i == value:
-            
             return index
         index +=1
          
@@ -222,6 +212,10 @@ def custom_reverse(input_list):
         True
 
     """
+    times_to_swap = custom_len(input_list)//2
+    for i in range(times_to_swap):
+        input_list[i],input_list[(i+1) * -1]= input_list[(i+1) * -1],input_list[i]
+
 
 
 
@@ -263,12 +257,14 @@ def custom_equality(some_list, another_list):
         False
 
     """
-    
-    # while len(some_list) == len(another_list):
-    for i in range(len(some_list)):
-        if some_list[i] != another_list[i]:
-            return False
-    return True
+    if len(some_list) != len(another_list):
+        return False
+    else:
+
+        for i in range(len(some_list)):
+            if some_list[i] != another_list[i]:
+                return False
+        return True
 
 
 
