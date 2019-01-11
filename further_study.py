@@ -102,8 +102,15 @@ def custom_insert(input_list, index, value):
         True
 
     """
-    length = len(input_list)
-    input_list[length:length] = [value]
+    # for i in range(len(input_list)):
+    #     if i == index:
+    #         original_index_item = input_list[index]
+    #         input_list[index] = value 
+    #         input_list[index+1] = original_index_item
+    # return input_list
+    input_list[index:index] = [value]
+
+
 
 
 def custom_remove(input_list, value):
@@ -121,9 +128,18 @@ def custom_remove(input_list, value):
         True
 
     """
-    for i in input_list:
+    index = 0
+    for item in input_list:
+        
         if item == value:
-            input_list[item] = []
+
+           
+            input_list[index:index+1] = []
+            
+            break
+        index +=1
+
+            # input_list[a:a]= []
 
 
 
@@ -208,7 +224,7 @@ def custom_contains(input_list, value):
 
         >>> custom_contains([0, 3, 6, 9, 12, 15, 18, 21, 24], 23)
         False
-
+    
         >>> custom_contains([0, 3, 6, 9, 12, 15, 18, 21, 24], 24)
         True
 
